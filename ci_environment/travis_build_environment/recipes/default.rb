@@ -25,7 +25,7 @@ include_recipe "timezone"
 include_recipe "sysctl"
 
 # installs custom templates for sshd_config and ssh upstart script. MK.
-include_recipe "openssh"
+# include_recipe "openssh"
 
 include_recipe "unarchivers"
 
