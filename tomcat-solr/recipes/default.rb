@@ -7,9 +7,9 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -51,7 +51,7 @@ when "debian", "ubuntu"
         source "solr.xml.erb"
         owner "root"
         group "root"
-        mode "0664" 
+        mode "0664"
     end
 
     template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/solrconfig.xml" do
@@ -73,6 +73,47 @@ when "debian", "ubuntu"
         owner "root"
         group "root"
         mode "0644"
-        #      notifies :restart, resources(:service => "tomcat7") 
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/elevate.xml" do
+        source "elevate.xml"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/protwords.txt" do
+        source "protwords.txt"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/scripts.conf" do
+        source "scripts.conf"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/stopwords.txt" do
+        source "stopwords.txt"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/synonyms.txt" do
+        source "synonyms.txt"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/spellings.txt" do
+        source "spellings.txt"
+        owner "root"
+        group "root"
+        mode "0644"
     end
 end
