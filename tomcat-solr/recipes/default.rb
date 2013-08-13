@@ -75,6 +75,48 @@ when "debian", "ubuntu"
         mode "0644"
     end
 
+    cookbook_file "/usr/share/tomcat7/lib/jcl-over-slf4j-1.6.6.jar" do
+        source "jars/jcl-over-slf4j-1.6.6.jar"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    cookbook_file "/usr/share/tomcat7/lib/jul-to-slf4j-1.6.6.jar" do
+        source "jars/jul-to-slf4j-1.6.6.jar"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    cookbook_file "/usr/share/tomcat7/lib/log4j-1.2.16.jar" do
+        source "jars/log4j-1.2.16.jar"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    cookbook_file "/usr/share/tomcat7/lib/slf4j-api-1.6.6.jar" do
+        source "jars/slf4j-api-1.6.6.jar"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    cookbook_file "/usr/share/tomcat7/lib/slf4j-log4j12-1.6.6.jar" do
+        source "jars/slf4j-log4j12-1.6.6.jar"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+    cookbook_file "/usr/share/tomcat7/lib/log4j.properties" do
+        source "jars/log4j.properties"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
     template "#{node[:solr][:home]}/#{node[:solr][:core_name]}/conf/elevate.xml" do
         source "elevate.xml"
         owner "root"
