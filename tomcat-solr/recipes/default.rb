@@ -68,13 +68,6 @@ when "debian", "ubuntu"
         mode "0644"
     end
 
-    cookbook_file "/var/lib/tomcat7/webapps/solr.war" do
-        source "solr.war"
-        owner "root"
-        group "root"
-        mode "0644"
-    end
-
     cookbook_file "/usr/share/tomcat7/lib/jcl-over-slf4j-1.6.6.jar" do
         source "jars/jcl-over-slf4j-1.6.6.jar"
         owner "root"
@@ -157,5 +150,13 @@ when "debian", "ubuntu"
         owner "root"
         group "root"
         mode "0644"
+    end
+
+    cookbook_file "/var/lib/tomcat7/webapps/solr.war" do
+        source "solr.war"
+        owner "root"
+        group "root"
+        mode "0644"
+        notifies :restart, resources(:service => "tomcat7")
     end
 end
